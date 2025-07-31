@@ -1,41 +1,26 @@
 # woe-credit-scoring
-This project implements a credit scoring model to predict the probability of default (PD) using:
+### Overview
+This project implements a **Probability of Default (PD) scoring model** using:
+- **WOE (Weight of Evidence)** transformation for feature engineering
+- **Logistic Regression** for binary classification (default/non-default)
+- Comprehensive validation tests (Gini, stability, multicollinearity, etc.)
 
-WOE (Weight of Evidence) transformation for feature engineering.
+### Key Features
+1. **Data Processing**
+   - Handles missing values and outliers
+   - Descriptive analysis of `tr_for_students.csv`
 
-Logistic regression as the scoring model.
+2. **WOE Transformation**
+   - Numerical features: Discretized into optimized bins
+   - Categorical features: Regrouped and mapped to WOE values
+   - *Optional*: Custom WOE implementation (+2 extra points)
 
-Validation tests to assess model robustness (Gini, stability, multicollinearity, etc.).
+3. **Model Development**
+   - Logistic regression (statsmodels/sklearn)
+   - Regularization tuning (Gini optimization)
 
-Key Steps
-Data Preprocessing
+4. **Validation**
+   - 10 validation tests on `vl_for_students.csv`:
+     - Ranking efficiency, factor stability, Gini dynamics, etc.
+   - Traffic-light results reporting
 
-Handle missing values, outliers, and categorical encoding.
-
-Descriptive analysis (tr_for_students.csv).
-
-WOE Transformation
-
-Numerical features: Discretized into bins (like decision trees).
-
-Categorical features: Regrouped (if needed) and mapped to WOE values.
-
-Optional: Custom WOE function (+2 extra points).
-
-Model Training
-
-Logistic regression (statsmodels/sklearn) on WOE-transformed features.
-
-Regularization tuning (optimizing Gini).
-
-Validation
-
-Out-of-time testing (vl_for_students.csv).
-
-10 validation tests (ranking efficiency, Gini dynamics, factor stability, etc.).
-
-Output
-
-Scorecard: Factor buckets, WOE values, coefficients, DR, Gini, p-values, VIF.
-
-Report: Modeling logic, assumptions, and test results (traffic-light colored).
